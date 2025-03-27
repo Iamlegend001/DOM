@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Download UI</title>
+  </head>
+  <body class="h-screen flex justify-center items-center bg-gradient-to-br from-blue-100 to-blue-300">
+    <div id="center" class="bg-white text-center p-10 border rounded-2xl shadow-2xl flex flex-col gap-6 w-96 select-none transition hover:scale-105 active:scale-95 duration-300">
+
+      <!-- Loader -->
+      <div id="loder" class="w-full flex items-center justify-center">
+        <div class="cls w-full h-8 bg-gray-200 rounded-lg overflow-hidden relative">
+          <div id="growth" class="absolute left-0 top-0 h-full  bg-blue-500 animate-pulse"></div>
+        </div>
+      </div>
+
+      <h5 id="percent" class="text-right text-gray-500 font-semibold">0%</h5>
+
+      <!-- Song Info -->
+      <div class="text flex justify-between items-center">
+        <h1 class="text-xl font-bold text-gray-800">Song.mp3</h1>
+        <button class="bg-blue-500 text-white px-5 py-2 rounded-full shadow-lg transition transform hover:scale-110 active:scale-90 duration-300">
+          Download
+        </button>
+      </div>
+
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
