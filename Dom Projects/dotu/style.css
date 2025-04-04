@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+#main {
+  position: relative; /* FIX: Ensures absolute positioning works inside it */
+  width: 100vw;  /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Prevents images from overflowing */
+}
+
+button {
+  padding: 1rem 2rem;
+  font-size: 2rem;
+  border: none;
+  background-color: rgb(118, 236, 118);
+  border-radius: 30px;
+  z-index: 99;
+}
+button:active {
+  scale: 0.991;
+  background-color: aqua;
+}
+
+img {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+}
