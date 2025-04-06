@@ -11,149 +11,162 @@ html, body {
   align-items: center;
   justify-content: center;
   background-color: #fafafa;
+  cursor: none;
 }
 
 #main {
   display: flex;
   align-items: center;
   justify-content: center;
+}
 
-  #post {
-    width: 22rem;
-    background-color: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
-    position: relative; // Needed for absolute positioning of like effect
+#post {
+  width: 22rem;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  position: relative;
 
-    .profile {
+  .profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+
+    .pro {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 10px;
-      border-bottom: 1px solid #ddd;
+      gap: 10px;
 
-      .pro {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-
-        .img img {
-          width: 35px;
-          height: 35px;
-          border-radius: 50%;
-          object-fit: cover;
-        }
-
-        .text {
-          font-weight: bold;
-          font-size: 14px;
-          color: black;
-        }
-      }
-
-      i {
-        font-size: 1.2rem;
-        color: #555;
-        cursor: pointer;
-      }
-    }
-
-    .post {
-      position: relative; // For heart animation
-
-      img {
-        width: 100%;
-        height: auto;
+      .img img {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
         object-fit: cover;
-        cursor: pointer; // Indicate interaction
+      }
+
+      .text {
+        font-weight: bold;
+        font-size: 14px;
+        color: black;
       }
     }
 
-    .icon {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px;
+    i {
+      font-size: 1.2rem;
+      color: #555;
+      cursor: pointer;
+    }
+  }
 
-      .left, .right {
-        i {
-          font-size: 1.5rem;
-          margin-right: 10px;
-          cursor: pointer;
-          transition: 0.3s;
+  .post {
+    position: relative;
 
-          &:hover {
-            color: red;
-          }
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      cursor: pointer;
+    }
+  }
+
+  .icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+
+    .left, .right {
+      i {
+        font-size: 1.5rem;
+        margin-right: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+          color: red;
         }
       }
     }
+  }
 
-    .content {
-      padding: 10px;
+  .content {
+    padding: 10px;
 
-      .likes {
-        font-weight: bold;
-      }
-
-      .caption, .comments {
-        font-size: 14px;
-        margin-top: 5px;
-      }
-
-      .more-comments {
-        font-size: 14px;
-        color: #999;
-        margin-top: 5px;
-        cursor: pointer;
-      }
+    .likes {
+      font-weight: bold;
     }
 
-    .add-comment {
-      display: flex;
-      align-items: center;
-      padding: 10px;
-      border-top: 1px solid #ddd;
-
-      i {
-        font-size: 1.2rem;
-        color: #888;
-        margin-right: 10px;
-      }
-
-      input {
-        flex: 1;
-        border: none;
-        font-size: 14px;
-        outline: none;
-      }
-
-      button {
-        background: none;
-        border: none;
-        color: #0095f6;
-        font-weight: bold;
-        cursor: pointer;
-      }
+    .caption, .comments {
+      font-size: 14px;
+      margin-top: 5px;
     }
 
-    // Heart animation on double-click
-    .like-effect {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      font-size: 4rem;
-      color: rgba(255, 0, 0, 0.8);
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 1;
-      animation: fadeOut 0.6s ease-out forwards;
+    .more-comments {
+      font-size: 14px;
+      color: #999;
+      margin-top: 5px;
+      cursor: pointer;
+    }
+  }
+
+  .add-comment {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+
+    i {
+      font-size: 1.2rem;
+      color: #888;
+      margin-right: 10px;
+    }
+
+    input {
+      flex: 1;
+      border: none;
+      font-size: 14px;
+      outline: none;
+    }
+
+    button {
+      background: none;
+      border: none;
+      color: #0095f6;
+      font-weight: bold;
+      cursor: pointer;
     }
   }
 }
 
-// Keyframe animation for heart effect
+/* Custom Cursor */
+.custom-cursor {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-out;
+  opacity: 0.8;
+}
+
+/* Like Animation */
+.like-effect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 4rem;
+  color: rgba(255, 0, 0, 0.8);
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  animation: fadeOut 0.6s ease-out forwards;
+}
+
 @keyframes fadeOut {
   0% {
     transform: translate(-50%, -50%) scale(1);
